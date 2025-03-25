@@ -1,0 +1,93 @@
+/* Родительский контейнер */
+.benefitsSection {
+    background: linear-gradient(135deg, #fffefe 0%, #f9f9fb 100%);
+
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  /* Заголовок */
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  /* Подзаголовок */
+  .subtitle {
+    font-size: 1.125rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  /* Контейнер для слайдера */
+  .swiperContainer {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Каждая карточка */
+  .card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+    transition: transform 0.3s ease;
+    /* Чтобы карточки были одинаковой высоты, задаём min-height.
+       Можно подправить под нужные размеры */
+    min-height: 380px;
+  
+    /* Для равномерного расположения контента внутри */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Картинка внутри карточки */
+  .cardImage {
+    width: 100%;
+    /* Используем aspect-ratio для одинаковых пропорций */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Заголовок карточки */
+  .cardTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  /* Текст карточки */
+  .cardText {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+    text-align: left; /* или center, если хотите */
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto; /* чтобы текст был красиво по центру */
+  }
+  
+  /* Адаптивные стили можно корректировать дополнительно */
+  @media (max-width: 768px) {
+    .card {
+      min-height: auto; /* На мобильных можно снять фикс. высоту */
+    }
+  
+    .cardImage {
+      aspect-ratio: auto; /* Или можно оставить 16/9, на ваше усмотрение */
+      height: 200px; /* Пример: фиксированная высота на мобильных */
+    }
+  }
+  

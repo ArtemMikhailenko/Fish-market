@@ -1,0 +1,132 @@
+.whySection {
+    padding: 3rem 1rem;
+    position: relative;
+    /* overflow: hidden; */
+    background: linear-gradient(135deg, #fffefe 0%, #f9f9fb 100%);
+
+  }
+  
+  /* Лёгкие декоративные волны или круги на фоне */
+  .whySection::before,
+  .whySection::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(249, 115, 22, 0.1);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .whySection::before {
+    top: -100px;
+    left: -100px;
+  }
+  
+  .whySection::after {
+    bottom: -100px;
+    right: -100px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .features {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .featureItem {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #fafafa;
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .featureItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .iconBox {
+    min-width: 40px;
+    min-height: 40px;
+    background-color: #fff;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: #f97316;
+  }
+  
+  .featureTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .featureText {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+  
+  .imageWrapper {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .featureImage {
+    max-width: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+  }
+  
+  /* Адаптив под мобильные */
+  @media (max-width: 768px) {
+    .contentWrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .features {
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+  
+    .imageWrapper {
+      max-width: 500px;
+    }
+  }
+  
