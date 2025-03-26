@@ -1,10 +1,4 @@
-:global {
-  :root {  --primary-color: #f97316;
-    --secondary-color: #4a4a4a;
-    --background-gradient-start: #fffafc;
-    --background-gradient-end: #fdfcfe;
-  }
-}
+
   .reviewsContainer {
     background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
 

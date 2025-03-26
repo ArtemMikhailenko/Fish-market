@@ -1,7 +1,10 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #f97316;
+  --secondary-color: #4a4a4a;
+  --background-gradient-start: #fffafc;
+  --background-gradient-end: #fdfcfe;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
