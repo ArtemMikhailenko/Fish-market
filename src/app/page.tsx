@@ -5,6 +5,7 @@ import BenefitsSlider from "@/components/BenefitsSlider/BenefitsSlider";
 import DeliverySteps from "@/components/DeliverySteps/DeliverySteps";
 import ReviewsBlock from "@/components/ReviewsBlock/ReviewsBlock";
 import RequestForm from "@/components/RequestForm/RequestForm";
+import Catalog from "@/components/Catalog/Catalog";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
      <Hero/>
      <WhyChooseUs/>
      <BenefitsSlider/>
+     <Catalog/>
      <DeliverySteps/>
      <ReviewsBlock/>
      <RequestForm/>
