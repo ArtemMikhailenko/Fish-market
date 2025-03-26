@@ -1,0 +1,280 @@
+:root {
+    --primary-color: #f97316;
+    --secondary-color: #4a4a4a;
+    --background-gradient-start: #fffafc;
+    --background-gradient-end: #fdfcfe;
+  }
+  
+  .reviewsContainer {
+    background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  .content {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  
+  /* Заголовок блока */
+  .heading {
+    font-size: 2.5rem; /* немного меньше, чем было ранее */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #2d3748; /* темно-серый цвет */
+  }
+  
+  .headingHighlight {
+    color: inherit; /* убираем градиент, оставляем цвет родителя */
+    font-weight: 700;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Слайдер */
+  .slider {
+    position: relative;
+    height: 500px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    perspective: 2400px;
+  }
+  
+  /* Карточки отзывов */
+  .card {
+    position: absolute;
+    width: 410px;
+    left: 50%;
+    top: 50%;
+    cursor: pointer;
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .cardContent {
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .cardInner {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Положения карточек */
+  .card.active {
+    transform: translate(-50%, -50%) scale(1) rotateY(0);
+    z-index: 5;
+  }
+  
+  .card.prev {
+    transform: translate(-130%, -50%) scale(0.8) rotateY(25deg);
+    opacity: 0.7;
+    z-index: 4;
+  }
+  
+  .card.next {
+    transform: translate(30%, -50%) scale(0.8) rotateY(-25deg);
+    opacity: 0.7;
+    z-index: 4;
+  }
+  
+  .card.hidden {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  .card:hover .cardContent {
+    transform: translateZ(30px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(78, 205, 196, 0.2);
+  }
+  
+  /* Аватар отзыва */
+  .avatarWrapper {
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+  }
+  
+  .avatar {
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+    border-radius: 20px;
+    border: 4px solid var(--primary-color);
+    background: white;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Дополнительные эффекты */
+  .avatarGlow {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    filter: blur(15px);
+    opacity: 0.5;
+    z-index: 1;
+    animation: pulseGlow 2s infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.3;
+    }
+  }
+  
+  /* Остальные стили индикаторов, отзывов и адаптив */
+  .reviewContent {
+    text-align: center;
+  }
+  
+  .reviewText {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 25px;
+    font-style: italic;
+  }
+  
+  .reviewerName {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  
+  .reviewerRole {
+    font-size: 1rem;
+    color: #718096;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  
+  @media (max-width: 1200px) {
+    .reviewsContainer {
+      padding: 80px 20px;
+    }
+    .card {
+      width: 420px;
+    }
+    .heading {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .card {
+      width: 380px;
+    }
+    .card.prev {
+      transform: translate(-110%, -50%) scale(0.8) rotateY(25deg);
+    }
+    .card.next {
+      transform: translate(10%, -50%) scale(0.8) rotateY(-25deg);
+    }
+    .reviewText {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .reviewsContainer {
+      padding: 60px 15px;
+      min-height: 600px;
+    }
+    .heading {
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+    }
+    .slider {
+      height: 450px;
+    }
+    .card {
+      width: 340px;
+    }
+    .cardContent {
+      padding: 30px;
+    }
+    .avatarWrapper {
+      width: 100%;
+      height: 100%;
+    }
+    .reviewText {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .reviewerName {
+      font-size: 1.2rem;
+    }
+    .card.prev {
+      transform: translate(-100%, -50%) scale(0.8) rotateY(25deg);
+      opacity: 0.5;
+    }
+    .card.next {
+      transform: translate(0%, -50%) scale(0.8) rotateY(-25deg);
+      opacity: 0.5;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .heading {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .card {
+      width: 300px;
+    }
+    .cardContent {
+      padding: 25px;
+    }
+    .reviewText {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .reviewerName {
+      font-size: 1.1rem;
+    }
+    .reviewerRole {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -37,8 +37,9 @@ const BenefitsSlider: React.FC = () => {
       </p>
 
       <Swiper
-        spaceBetween={20}           // Расстояние между слайдами
-        slidesPerView={3}           // Количество слайдов на экране по умолчанию
+        loop={true}                // Включаем бесконечную прокрутку
+        spaceBetween={20}          // Расстояние между слайдами
+        slidesPerView={3}          // Количество слайдов на экране по умолчанию
         breakpoints={{
           320: { slidesPerView: 1 },   // Мобильные (до 320px)
           768: { slidesPerView: 2 },   // Планшеты (до 768px)
