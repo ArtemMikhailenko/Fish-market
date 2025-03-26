@@ -1,9 +1,11 @@
-:global(:root) {
+:global {
+    :root {
         --primary-color: #f97316;
     --secondary-color: #4a4a4a;
     --background-gradient-start: #fffafc;
     --background-gradient-end: #fdfcfe;
   }
+}
   
   .deliverySection {
     position: relative;
