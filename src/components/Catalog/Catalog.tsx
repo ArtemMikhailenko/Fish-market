@@ -33,6 +33,7 @@ const Catalog: React.FC = () => {
   };
 
   return (
+    //@ts-ignore
     <section className={styles.catalogSection}>
       <div className={styles.sectionHeader}>
         <h2 className={styles.title}>Икорный Бутик</h2>
