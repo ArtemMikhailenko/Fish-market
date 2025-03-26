@@ -1,4 +1,3 @@
-/* DeliverySteps.module.css */
 :root {
     --primary-color: #f97316;
     --secondary-color: #4a4a4a;
@@ -49,7 +48,7 @@
     justify-content: center;
   }
   
-  .stepLine {
+  /* .stepLine {
     position: absolute;
     left: 50%;
     top: 0;
@@ -67,26 +66,31 @@
     opacity: 0.3;
     transition: opacity 0.3s ease;
   }
-  
+   */
   .stepList {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 4rem;
     position: relative;
     z-index: 2;
+    width: 100%;
   }
   
   .stepItem {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     position: relative;
     transition: transform 0.3s ease;
+    width: 100%;
   }
   
-  .stepItem:hover {
-    transform: scale(1.02);
+  .stepItemLeft {
+    flex-direction: row;
+  }
+  
+  .stepItemRight {
+    flex-direction: row-reverse;
   }
   
   .stepIcon {
@@ -99,7 +103,7 @@
     align-items: center;
     justify-content: center;
     z-index: 3;
-    margin-bottom: 1.5rem;
+    margin: 0 1.5rem;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -121,34 +125,21 @@
     color: white;
   }
   
-  .stepIcon::after {
-    content: "";
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    width: 3px;
-    height: 100%;
-    background: repeating-linear-gradient(
-      to bottom,
-      var(--primary-color),
-      var(--primary-color) 5px,
-      transparent 5px,
-      transparent 10px
-    );
-    transform: translateX(-50%);
-    opacity: 0.3;
-    z-index: -1;
-  }
-  
-  .stepItem:last-child .stepIcon::after {
-    display: none;
-  }
-  
   .stepContent {
     max-width: 500px;
-    margin: 0 auto;
     opacity: 0.9;
     transition: opacity 0.3s ease;
+    width: calc(50% - 60px);
+  }
+  
+  .stepItemLeft .stepContent {
+    text-align: right;
+    margin-right: 2rem;
+  }
+  
+  .stepItemRight .stepContent {
+    text-align: left;
+    margin-left: 2rem;
   }
   
   .stepItem:hover .stepContent {
@@ -185,26 +176,19 @@
   }
   
   @media (max-width: 768px) {
-    .stepsContainer {
-      width: 100%;
-    }
-  
-    .stepLine {
-      left: 30px;
-    }
-  
     .stepItem {
-      flex-direction: row;
-      align-items: flex-start;
-      text-align: left;
+      flex-direction: column !important;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .stepContent {
+      width: 100%;
+      text-align: center !important;
+      margin: 1rem 0 !important;
     }
   
     .stepIcon {
-      margin-right: 1.5rem;
-    }
-  
-    .stepIcon::after {
-      left: 40px;
-      top: 40px;
+      margin: 0 0 1rem 0;
     }
   }

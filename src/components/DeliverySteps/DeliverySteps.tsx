@@ -51,7 +51,12 @@ const DeliverySteps: React.FC = () => {
 
           <div className={styles.stepList}>
             {steps.map((step, index) => (
-              <div key={index} className={styles.stepItem}>
+              <div 
+                key={index} 
+                className={`${styles.stepItem} ${
+                  index % 2 === 0 ? styles.stepItemLeft : styles.stepItemRight
+                }`}
+              >
                 <div className={styles.stepIcon}>
                   {step.icon}
                 </div>
