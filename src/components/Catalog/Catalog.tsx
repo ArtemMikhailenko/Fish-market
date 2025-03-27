@@ -232,7 +232,7 @@ const Catalog: React.FC = () => {
   };
 
   return (
-    <section className={styles.catalogSection}>
+    <section className={styles.catalogSection} id='assortment'>
       <div className={styles.decorCircle1}></div>
       <div className={styles.decorCircle2}></div>
       <div className={styles.decorCircle3}></div>

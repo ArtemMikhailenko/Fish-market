@@ -108,14 +108,14 @@ const Hero: React.FC = () => {
               className={styles.ctaButton}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                setIsOrderModalOpen(true);
-              }}
+              // onClick={() => {
+              //   setIsOrderModalOpen(true);
+              // }}
             >
               Заказать сейчас
             </motion.button>
             <motion.a 
-              href="#catalog" 
+              href="#assortment" 
               className={styles.secondaryLink}
               whileHover={{ x: 5 }}
             >

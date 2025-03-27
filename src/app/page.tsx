@@ -17,7 +17,7 @@ export default function Home() {
      <Catalog/>
      <DeliverySteps/>
      <ReviewsBlock/>
-     <RequestForm/>
+     {/* <RequestForm/> */}
     </div>
   );
 }

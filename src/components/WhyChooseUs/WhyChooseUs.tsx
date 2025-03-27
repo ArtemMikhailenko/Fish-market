@@ -88,13 +88,13 @@ const WhyChooseUs: React.FC = () => {
         </svg>
       ),
       title: "Быстрая доставка",
-      text: "Отправляем заказы по всей России в течение 24 часов. Доставка «Новой Почтой» занимает всего 1–2 дня до любого населённого пункта.",
+      text: "Отправляем заказы по всей России в течение 24 часов. Доставка занимает всего 1–2 дня до любого населённого пункта.",
       color: "#4d7cfe"
     }
   ];
 
   return (
-    <section className={styles.whySection} ref={sectionRef}>
+    <section className={styles.whySection} ref={sectionRef} id="about" >
       <div className={styles.decorCircle1}></div>
       <div className={styles.decorCircle2}></div>
       <div className={styles.decorDots}></div>

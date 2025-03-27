@@ -68,7 +68,7 @@ const ReviewsBlock = () => {
   };
 
   return (
-    <div className={styles.reviewsContainer}>
+    <div className={styles.reviewsContainer} id="reviews">
       <div className={styles.content}>
         <div className={styles.headerContent}>
           <span className={styles.tagline}>Мнения наших клиентов</span>

@@ -21,7 +21,7 @@ const steps: Step[] = [
   {
     icon: <CreditCard className={styles.stepIconSvg} />,
     title: 'Оплатите заказ',
-    description: 'Оплатите удобным способом: картой онлайн, через банк или наложенным платежом при получении.',
+    description: 'Оплатите удобным способом: картой онлайн, через банк.',
     color: '#f59e0b'
   },
   {
@@ -71,7 +71,7 @@ const DeliverySteps: React.FC = () => {
   }, []);
 
   return (
-    <section className={styles.deliverySection} ref={sectionRef}>
+    <section className={styles.deliverySection} ref={sectionRef} id='delivery'>
       <div className={styles.decorCircle1}></div>
       <div className={styles.decorCircle2}></div>
       <div className={styles.decorPattern}></div>
@@ -155,9 +155,9 @@ const DeliverySteps: React.FC = () => {
       
       <div className={styles.ctaContainer}>
         <p className={styles.ctaText}>Готовы сделать заказ?</p>
-        <button className={styles.ctaButton} onClick={() => {
-                setIsOrderModalOpen(true);
-              }}>
+        <button className={styles.ctaButton} 
+        // onClick={() => { setIsOrderModalOpen(true);}}
+        >
           Заказать сейчас
         </button>
       </div>

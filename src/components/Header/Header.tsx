@@ -103,10 +103,10 @@ const Header: React.FC = () => {
         {/* Desktop Navigation Menu */}
         <nav className={styles.navigation}>
           {[
-            { path: '/assortment', label: 'Ассортимент' },
-            { path: '/about', label: 'О нас' },
-            { path: '/reviews', label: 'Отзывы' },
-            { path: '/delivery', label: 'Доставка' }
+            { path: '#assortment', label: 'Ассортимент' },
+            { path: '#about', label: 'О нас' },
+            { path: '#reviews', label: 'Отзывы' },
+            { path: '#delivery', label: 'Доставка' }
           ].map((item) => (
             <motion.div
               key={item.path}
@@ -216,7 +216,7 @@ const Header: React.FC = () => {
               className={styles.navLinkMobile}
               onClick={() => {
                 setIsMenuOpen(false);
-                setIsOrderModalOpen(true);
+                // setIsOrderModalOpen(true);
               }}
             >
               Заказать
