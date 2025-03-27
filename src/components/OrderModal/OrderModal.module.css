@@ -1,0 +1,266 @@
+/* OrderModal.module.css */
+
+.modalWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+  }
+  
+  .modal {
+    position: relative;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2.5rem;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  /* Декоративные элементы */
+  .decorCircle1,
+  .decorCircle2 {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .decorCircle1 {
+    top: -80px;
+    right: -80px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(230, 92, 79, 0.08) 0%, rgba(230, 92, 79, 0) 70%);
+  }
+  
+  .decorCircle2 {
+    bottom: -60px;
+    left: -60px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(230, 92, 79, 0.06) 0%, rgba(230, 92, 79, 0) 70%);
+  }
+  
+  /* Заголовок модального окна */
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .modalTitle::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #e65c4f;
+    border-radius: 3px;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .closeButton:hover {
+    color: #e65c4f;
+  }
+  
+  .closeButton svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Тело модального окна */
+  .modalBody {
+    margin-bottom: 1.5rem;
+  }
+  
+  .modalDescription {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Форма заказа */
+  .orderForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .inputLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .requiredMark {
+    color: #e65c4f;
+  }
+  
+  .optionalMark {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #999;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    outline: none;
+    border-color: #e65c4f;
+    box-shadow: 0 0 0 2px rgba(230, 92, 79, 0.1);
+    background-color: white;
+  }
+  
+  .input::placeholder,
+  .textarea::placeholder {
+    color: #aaa;
+  }
+  
+  .inputError {
+    border-color: #ff4d4f;
+    background-color: rgba(255, 77, 79, 0.03);
+  }
+  
+  .inputError:focus {
+    border-color: #ff4d4f;
+    box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.1);
+  }
+  
+  .errorMessage {
+    font-size: 0.8rem;
+    color: #ff4d4f;
+    margin-top: 0.25rem;
+  }
+  
+  .buttonContainer {
+    margin-top: 1rem;
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 1rem;
+    background-color: #e65c4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .submitButton:hover {
+    background-color: #d94d40;
+  }
+  
+  /* Нижняя часть модального окна */
+  .modalFooter {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .privacyPolicy {
+    font-size: 0.8rem;
+    color: #999;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  .policyLink {
+    color: #e65c4f;
+    text-decoration: none;
+    margin-left: 0.25rem;
+  }
+  
+  .policyLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 576px) {
+    .modal {
+      padding: 1.5rem;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    
+    .modalTitle {
+      font-size: 1.5rem;
+    }
+    
+    .modalDescription {
+      font-size: 0.95rem;
+    }
+    
+    .input, 
+    .textarea, 
+    .submitButton {
+      padding: 0.8rem;
+      font-size: 0.95rem;
+    }
+  }

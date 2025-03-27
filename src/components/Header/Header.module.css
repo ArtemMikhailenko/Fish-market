@@ -1,159 +1,472 @@
+/* Header.module.css */
+
 .header {
-    background: linear-gradient(135deg, #fff0f3 0%, #ffe4e6 100%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 10;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerBackgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #fff8f6 0%, #fff2f0 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0.97;
+  z-index: -1;
+}
+
+.header.scrolled {
+  height: 100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled .headerBackgroundLayer {
+  opacity: 0.98;
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo styling */
+.logoLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.logoIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  background: linear-gradient(135deg, #e65c4f 0%, #f78776 100%);
+  border-radius: 12px;
+  /* box-shadow: 0 4px 10px rgba(230, 92, 79, 0.2); */
+  /* padding: 0.6rem; */
+  transition: all 0.3s ease;
+}
+
+.logoIcon {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.logoTextContent {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logoText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: -0.02em;
+}
+
+.logoTextAccent {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #e65c4f;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation styling */
+.navigation {
+  display: flex;
+  gap: 2rem;
+}
+
+.navItemWrapper {
+  position: relative;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.navLinkUnderline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #e65c4f, #f78776);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+.navLink:hover {
+  color: #e65c4f;
+}
+
+.navLink:hover .navLinkUnderline {
+  width: 100%;
+}
+
+.activeNavLink {
+  color: #e65c4f;
+  font-weight: 600;
+}
+
+.activeNavLink .navLinkUnderline {
+  width: 100%;
+}
+
+/* Action buttons styling */
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.adminButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.adminButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.adminButton:hover {
+  background-color: #e65c4f;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(230, 92, 79, 0.25);
+}
+
+/* Call button */
+.callButton {
+  background: linear-gradient(135deg, #e65c4f 0%, #f78776 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(230, 92, 79, 0.2);
+}
+
+.callButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(230, 92, 79, 0.3);
+}
+
+.callButtonContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.callIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+
+.callTextContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.callButtonText {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.callButtonSubtext {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* Mobile menu toggle */
+.mobileMenuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.menuLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #666;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.menuOpen .menuLine:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background-color: #e65c4f;
+}
+
+.menuOpen .menuLine:nth-child(2) {
+  opacity: 0;
+}
+
+.menuOpen .menuLine:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background-color: #e65c4f;
+}
+
+/* Mobile navigation styling */
+.mobileNavigation {
+  display: none;
+  overflow: hidden;
+}
+
+/* Social icons for mobile */
+.mobileSocial {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.socialIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.socialIcon:hover {
+  background-color: #e65c4f;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Decorative elements */
+.decorCircle1, 
+.decorCircle2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.decorCircle1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  right: 5%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.decorCircle2 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  left: 8%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logoLink {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-  
-  .logoContainer {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-  }
-  
-  .logoIcon {
-    width: 40px;
-    height: 40px;
-    color: #10b981;
-    transition: color 0.3s ease;
-  }
-  
-  .logoLink:hover .logoIcon {
-    color: #059669;
-  }
-  
-  .logoText {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #374151;
-    transition: color 0.3s ease;
-  }
-  
-  .logoLink:hover .logoText {
-    color: #111827;
+    padding: 0 1.5rem;
   }
   
   .navigation {
-    display: flex;
     gap: 1.5rem;
   }
   
   .navLink {
-    text-decoration: none;
-    color: #4b5563;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease;
+    font-size: 1rem;
   }
   
-  .navLink::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0%;
-    height: 2px;
-    background-color: #10b981;
-    transition: width 0.3s ease;
+  .logoText {
+    font-size: 1.1rem;
   }
   
-  .navLink:hover {
-    color: #10b981;
+  .logoTextAccent {
+    font-size: 1.3rem;
   }
-  
-  .navLink:hover::after {
-    width: 100%;
-  }
-  
-  .actionButtons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .callButton {
-    background-color: #f97316;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .callButton:hover {
-    background-color: #ea580c;
-    transform: translateY(-2px);
-  }
-  
-  .callButton svg {
-    width: 20px;
-    height: 20px;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
   }
   
   .mobileMenuToggle {
+    display: flex;
+  }
+  
+  .callButtonSubtext {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #4b5563;
-    transition: transform 0.3s ease;
   }
   
-  .mobileMenuToggle:hover {
-    transform: rotate(90deg);
+  .callButton {
+    padding: 0.6rem 1rem;
   }
   
-  @media (max-width: 768px) {
-    .navigation {
-      display: none;
-    }
-  
-    .mobileMenuToggle {
-      display: block;
-    }
-  
-    .mobileNavigation {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(135deg, #fff0f3 0%, #ffe4e6 100%);
-      padding: 1rem;
-      gap: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    .navLinkMobile {
-      text-decoration: none;
-      color: #4b5563;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-  
-    .navLinkMobile:hover {
-      color: #10b981;
-    }
+  .callIconWrapper {
+    width: 26px;
+    height: 26px;
   }
   
+  .mobileNavigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(135deg, #fff8f6 0%, #fff2f0 100%);
+    padding: 1.5rem;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .navLinkMobile {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .navLinkMobile:hover {
+    background-color: rgba(230, 92, 79, 0.1);
+    color: #e65c4f;
+  }
+  
+  .activeNavLinkMobile {
+    background-color: rgba(230, 92, 79, 0.1);
+    color: #e65c4f;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 70px;
+  }
+  
+  .header.scrolled {
+    height: 60px;
+  }
+  
+  .logoIconWrapper {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .logoText {
+    font-size: 0.9rem;
+  }
+  
+  .logoTextAccent {
+    font-size: 1.1rem;
+  }
+  
+  .callButtonText {
+    display: none;
+  }
+  
+  .callButton {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  
+  .callButtonContent {
+    gap: 0;
+  }
+  
+  .callIconWrapper {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    background-color: transparent;
+  }
+  
+  .adminButton {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .adminButton svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}

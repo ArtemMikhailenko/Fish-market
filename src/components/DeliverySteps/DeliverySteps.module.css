@@ -1,189 +1,514 @@
+/* DeliverySteps.module.css */
 
-  
-  .deliverySection {
-    position: relative;
-    padding: 4rem 1rem;
-    background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
-    text-align: center;
-    overflow: hidden;
+.deliverySection {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #fff8f6 0%, #fff2f0 100%);
+  text-align: center;
+  /* overflow: hidden; */
+}
+
+/* Decorative elements */
+.decorCircle1,
+.decorCircle2,
+.decorPattern {
+  position: absolute;
+  pointer-events: none;
+}
+
+.decorCircle1 {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  right: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: float 15s infinite alternate ease-in-out;
+}
+
+.decorCircle2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  left: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: float 20s infinite alternate-reverse ease-in-out;
+}
+
+.decorPattern {
+  width: 300px;
+  height: 300px;
+  top: 30%;
+  right: 5%;
+  background-image: radial-gradient(rgba(230, 92, 79, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  transform: rotate(-10deg);
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
   }
-  
-  .sectionContent {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+.sectionContent {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header styles */
+.headerContent {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.tagline {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: #e65c4f;
+  padding: 0.4rem 1.2rem;
+  background-color: rgba(230, 92, 79, 0.1);
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #333;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #e65c4f, #f8a099);
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  max-width: 80%;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Feature bar */
+.featuresBar {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.featureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e65c4f;
+}
+
+.featureText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Steps container */
+.stepsContainer {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.stepLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background-color: rgba(230, 92, 79, 0.15);
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stepLineNode {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 3px solid #e65c4f;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.animateNode {
+  animation: popIn 0.5s forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  --step-color: #e65c4f;
+}
+
+.stepVisible {
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stepItemLeft {
+  flex-direction: row;
+}
+
+.stepItemRight {
+  flex-direction: row-reverse;
+}
+
+.stepConnector {
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 60px);
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.08);
+  z-index: 0;
+  transition: background-color 0.3s ease;
+}
+
+.stepItemLeft .stepConnector {
+  right: 50%;
+}
+
+.stepItemRight .stepConnector {
+  left: 50%;
+}
+
+.stepActive .stepConnector {
+  background-color: var(--step-color);
+  height: 3px;
+}
+
+/* Icon styling */
+.stepIcon {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stepActive .stepIcon {
+  transform: scale(1.15);
+  border-color: var(--step-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stepIconSvg {
+  width: 36px;
+  height: 36px;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.stepActive .stepIconSvg {
+  color: var(--step-color);
+}
+
+.stepNumber {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--step-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stepActive .stepNumber {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Content styling */
+.stepContent {
+  width: calc(50% - 100px);
+  padding: 1.75rem 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.stepItemLeft .stepContent {
+  text-align: right;
+  margin-right: 2rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 5% 50%);
+  padding-left: 2.5rem;
+}
+
+.stepItemRight .stepContent {
+  text-align: left;
+  margin-left: 2rem;
+  clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 0% 100%);
+  padding-right: 2.5rem;
+}
+
+.stepActive .stepContent {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.stepTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.stepActive .stepTitle {
+  color: var(--step-color);
+}
+
+.stepDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA section */
+.ctaContainer {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.ctaText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.ctaButton {
+  padding: 1rem 2.5rem;
+  background-color: #e65c4f;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(230, 92, 79, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(230, 92, 79, 0.4);
+  background-color: #d9534f;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .deliverySection {
+    padding: 4rem 1.5rem;
   }
   
   .title {
     font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-    position: relative;
-    animation: fadeInUp 0.8s ease-out;
   }
   
-  .subtitle {
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+  .featuresBar {
+    gap: 1.5rem;
   }
-  
-  .stepsContainer {
-    position: relative;
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* .stepLine {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background: repeating-linear-gradient(
-      to bottom,
-      var(--primary-color),
-      var(--primary-color) 5px,
-      transparent 5px,
-      transparent 10px
-    );
-    transform: translateX(-50%);
-    z-index: 1;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
-  }
-   */
-  .stepList {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-  }
-  
+}
+
+@media (max-width: 768px) {
   .stepItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: transform 0.3s ease;
-    width: 100%;
-  }
-  
-  .stepItemLeft {
-    flex-direction: row;
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 45px;
+    margin-left: 20px;
   }
   
   .stepItemRight {
-    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+  
+  .stepLine {
+    left: 40px;
+  }
+  
+  .stepConnector {
+    display: none;
   }
   
   .stepIcon {
-    width: 80px;
-    height: 80px;
-    background-color: white;
-    border: 3px dashed var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    margin: 0 1.5rem;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .stepItem:hover .stepIcon {
-    border-style: solid;
-    background-color: var(--primary-color);
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.5rem;
   }
   
   .stepIconSvg {
-    width: 36px;
-    height: 36px;
-    color: var(--primary-color);
-    transition: color 0.3s ease;
-  }
-  
-  .stepItem:hover .stepIconSvg {
-    color: white;
+    width: 30px;
+    height: 30px;
   }
   
   .stepContent {
-    max-width: 500px;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-    width: calc(50% - 60px);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    text-align: left !important;
+    clip-path: none !important;
+    padding: 1.5rem !important;
   }
   
-  .stepItemLeft .stepContent {
-    text-align: right;
-    margin-right: 2rem;
+  .featuresBar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
   
-  .stepItemRight .stepContent {
-    text-align: left;
-    margin-left: 2rem;
+  .featureItem {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
   }
   
-  .stepItem:hover .stepContent {
-    opacity: 1;
+  .ctaContainer {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
   }
   
-  .stepTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 0.75rem;
-    transition: color 0.3s ease;
-  }
-  
-  .stepItem:hover .stepTitle {
-    color: var(--primary-color);
-  }
-  
-  .stepDescription {
+  .subtitle {
     font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
+    max-width: 100%;
   }
   
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .stepList {
+    gap: 3rem;
   }
   
-  @media (max-width: 768px) {
-    .stepItem {
-      flex-direction: column !important;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .stepContent {
-      width: 100%;
-      text-align: center !important;
-      margin: 1rem 0 !important;
-    }
-  
-    .stepIcon {
-      margin: 0 0 1rem 0;
-    }
+  .stepIcon {
+    width: 60px;
+    height: 60px;
   }
+  
+  .stepIconSvg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .stepNumber {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+}

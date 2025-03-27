@@ -1,190 +1,537 @@
+/* RequestForm.module.css */
 
-  
 .requestSection {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    margin-top: 40px;
-    justify-content: center;
-    padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fff8f6 0%, #fff2f0 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative elements */
+.decorCircle1,
+.decorCircle2,
+.decorTriangle {
+  position: absolute;
+  pointer-events: none;
+}
+
+.decorCircle1 {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  right: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: float 15s infinite alternate ease-in-out;
+}
+
+.decorCircle2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  left: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: float 20s infinite alternate-reverse ease-in-out;
+}
+
+.decorTriangle {
+  width: 200px;
+  height: 200px;
+  bottom: 15%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  opacity: 0.4;
+  transform: rotate(15deg);
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
   }
-  
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+.formWrapper {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Image side styling */
+.imageSide {
+  position: relative;
+  flex: 1;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+
+.imageSide:hover .bgImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.contentOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 3rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.imageBadge {
+  display: inline-block;
+  background-color: rgba(230, 92, 79, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contentOverlay h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contentOverlay p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.benefitIcon {
+  width: 20px;
+  height: 20px;
+  color: #e65c4f;
+  stroke-width: 2.5;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form side styling */
+.formSide {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.formSide::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: -200px;
+  right: -200px;
+  background: radial-gradient(circle, rgba(230, 92, 79, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  z-index: 2;
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 2.4rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.highlight {
+  color: #e65c4f;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(230, 92, 79, 0.15);
+  z-index: -1;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.inputWrapper {
+  position: relative;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.inputWrapper.focused {
+  box-shadow: 0 6px 15px rgba(230, 92, 79, 0.15);
+}
+
+.label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-right: 1px solid #eee;
+}
+
+.inputIcon {
+  color: #888;
+  width: 20px;
+  height: 20px;
+  transition: color 0.3s ease;
+}
+
+.inputWrapper.focused .inputIcon {
+  color: #e65c4f;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 0 12px 12px 0;
+  font-size: 1rem;
+  background: transparent;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: #aaa;
+}
+
+.submitButton {
+  width: 100%;
+  height: 60px;
+  background-color: #e65c4f;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 8px 20px rgba(230, 92, 79, 0.25);
+}
+
+.submitButton:hover {
+  transform: translateY(-3px);
+  background-color: #d9534f;
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.buttonAfterEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.submitButton:hover .buttonAfterEffect {
+  width: 300px;
+  height: 300px;
+  opacity: 0.3;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.submitButton:hover .buttonIcon {
+  transform: translateX(3px);
+}
+
+.submitted {
+  background-color: #10b981;
+  pointer-events: none;
+}
+
+.submitted .buttonIcon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.formFooter {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.securityNote {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #888;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+
+.securityIcon {
+  min-width: 24px;
+  height: 24px;
+  color: #10b981;
+}
+
+.contactMethods {
+  text-align: center;
+}
+
+.contactMethods p {
+  color: #666;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.contactButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.contactButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #e65c4f;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
   .formWrapper {
-    display: flex;
-    max-width: 1200px;
-    width: 100%;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    flex-direction: column;
+    max-width: 600px;
   }
   
   .imageSide {
-    position: relative;
-    flex: 1;
-    min-height: 600px;
+    min-height: 350px;
   }
   
-  .bgImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-    
   .contentOverlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: white;
     padding: 2rem;
-    z-index: 2;
   }
   
   .contentOverlay h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: 1.8rem;
   }
   
   .contentOverlay p {
-    font-size: 1.1rem;
-    opacity: 0.8;
+    font-size: 1rem;
   }
   
+  .benefitsList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .benefitItem {
+    font-size: 0.95rem;
+  }
+
   .formSide {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-  
-  .formContainer {
-    width: 100%;
-    max-width: 450px;
-  }
-  
-  .formHeader {
-    text-align: center;
-    margin-bottom: 2rem;
+    padding: 2.5rem 2rem;
   }
   
   .title {
-    font-size: 2.2rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .requestSection {
+    padding: 2rem 1rem;
   }
   
-  .subtitle {
-    color: #666;
-    font-size: 1rem;
+  .formWrapper {
+    border-radius: 20px;
   }
   
-  .inputGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  .imageSide {
+    min-height: 280px;
   }
   
-  .label {
-    position: relative;
-    display: flex;
-    align-items: center;
+  .contentOverlay {
+    padding: 1.5rem;
   }
   
-  .inputIcon {
-    position: absolute;
-    left: 15px;
-    color: #888;
-    width: 20px;
-    height: 20px;
+  .contentOverlay h3 {
+    font-size: 1.5rem;
   }
   
-  .input, .inputPhone {
-    width: 100%;
-    padding: 15px 15px 15px 50px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  .contentOverlay p {
+    font-size: 0.95rem;
   }
   
-  .input:focus, .inputPhone:focus {
-    border-color: #f97316;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+  .benefitsList {
+    margin-top: 0.5rem;
   }
   
-  .phoneWrapper {
-    display: flex;
-    width: 100%;
-  }
-  
-  .phonePrefix {
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #e0e0e0;
-    /* border-right: none; */
-  }
-  
-  
-  .submitButton {
-    width: 100%;
-    padding: 15px;
-    background-color: #f97316;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 1.5rem;
-  }
-  
-  .buttonIcon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .submitButton:hover {
-    background-color: #d85d13;
-    transform: translateY(-3px);
-  }
-  
-  .formFooter {
-    text-align: center;
-    margin-top: 1.5rem;
-    color: #888;
+  .benefitItem {
     font-size: 0.9rem;
   }
   
-  @media (max-width: 1024px) {
-    .formWrapper {
-      flex-direction: column;
-    }
-  
-    .imageSide {
-      min-height: 300px;
-    }
+  .formSide {
+    padding: 2rem 1.5rem;
   }
   
-  @media (max-width: 600px) {
-    .title {
-      font-size: 1.8rem;
-    }
-  
-    .contentOverlay h3 {
-      font-size: 1.5rem;
-    }
+  .title {
+    font-size: 1.8rem;
   }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .contactButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
