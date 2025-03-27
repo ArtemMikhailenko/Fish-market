@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                   </div>
                   <div className={styles.contactInfo}>
                     <span className={styles.contactLabel}>Мессенджеры:</span>
-                    <span className={styles.contactText}>Telegram, Viber</span>
+                    <span className={styles.contactText}>Telegram</span>
                   </div>
                 </div>
                 
