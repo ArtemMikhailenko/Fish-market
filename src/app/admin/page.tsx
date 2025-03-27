@@ -39,7 +39,7 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <Flex minH="100vh" bg={bg}>
+    <Flex minH="100vh" bg={bg} mt={20}>
       {/* Боковая панель */}
       <Box width={{ base: "full", md: "300px" }} bg={sidebarBg} p={6} boxShadow="md">
         <Heading as="h1" size="lg" mb={8} textAlign="center">
