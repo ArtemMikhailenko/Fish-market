@@ -19,18 +19,12 @@ const Footer: React.FC = () => {
             <div className={styles.brandIdentity}>
               <div className={styles.logoWrapper}>
                 <img
-                  src="/image/logo.svg"
+                  src="/image/logo1.png"
                   alt="Premium Caviar Logo"
                   className={styles.companyLogo}
                 />
                 <div className={styles.logoGlow}></div>
               </div>
-              <h2 className={styles.brandName}>
-                Premium <span className={styles.brandAccent}>Caviar</span>
-              </h2>
-              <p className={styles.brandTagline}>
-                Икра высочайшего качества прямо от поставщика!
-              </p>
             </div>
             
             <div className={styles.companyDescription}>
@@ -39,12 +33,6 @@ const Footer: React.FC = () => {
               </p>
             </div>
             
-            <div className={styles.actionButtonWrapper}>
-              <button className={styles.actionButton}>
-                <span className={styles.buttonText}>Заказать икру</span>
-                <span className={styles.buttonArrow}>→</span>
-              </button>
-            </div>
           </div>
           
           <div className={styles.rightSection}>
