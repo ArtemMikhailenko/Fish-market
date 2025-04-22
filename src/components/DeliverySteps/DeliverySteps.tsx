@@ -155,11 +155,11 @@ const DeliverySteps: React.FC = () => {
       
       <div className={styles.ctaContainer}>
         <p className={styles.ctaText}>Готовы сделать заказ?</p>
-        <button className={styles.ctaButton} 
+        <a href="https://t.me/ikorny_magnat" className={styles.ctaButton} 
         // onClick={() => { setIsOrderModalOpen(true);}}
         >
           Заказать сейчас
-        </button>
+        </a>
       </div>
       <OrderModal 
         isOpen={isOrderModalOpen}

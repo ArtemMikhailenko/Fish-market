@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <div className={styles.brandIdentity}>
               <div className={styles.logoWrapper}>
                 <img
-                  src="/image/logo1.png"
+                  src="https://res.cloudinary.com/dqx64qp0l/image/upload/v1744135842/logo1_rk3drd.png"
                   alt="Premium Caviar Logo"
                   className={styles.companyLogo}
                 />
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                   </div>
                   <div className={styles.contactInfo}>
                     <span className={styles.contactLabel}>Мессенджеры:</span>
-                    <span className={styles.contactText}>Telegram</span>
+                    <a href="https://t.me/ikorny_magnat" className={styles.contactText}>Telegram</a>
                   </div>
                 </div>
                 

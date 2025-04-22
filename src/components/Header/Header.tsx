@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             whileHover="hover"
           >
             <div className={styles.logoIconWrapper}>
-              <img className={styles.logoIcon} src="/image/logo2.png" alt="" />
+              <img className={styles.logoIcon} src="https://res.cloudinary.com/dqx64qp0l/image/upload/v1744135842/logo1_rk3drd.png" alt="logo" />
             </div>
             <div className={styles.logoTextContent}>
               <span className={styles.logoText}>Русская</span>
@@ -154,9 +154,9 @@ const Header: React.FC = () => {
             className={styles.callButton}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOrderModalOpen(true)}
+            // onClick={() => setIsOrderModalOpen(true)}
           >
-            <div className={styles.callButtonContent}>
+            <a href="https://t.me/ikorny_magnat" className={styles.callButtonContent}>
               <div className={styles.callIconWrapper}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -169,9 +169,9 @@ const Header: React.FC = () => {
                 </svg>
               </div>
               <div className={styles.callTextContent}>
-                <span className={styles.callButtonText}>Заказать</span>
+                <span  className={styles.callButtonText}>Заказать</span>
               </div>
-            </div>
+            </a>
           </motion.button>
 
           <button
@@ -212,17 +212,13 @@ const Header: React.FC = () => {
             ))}
             
             {/* Добавляем пункт для заказа в мобильном меню */}
-            <button 
+            <a 
               className={styles.navLinkMobile}
-              onClick={() => {
-                setIsMenuOpen(false);
-                // setIsOrderModalOpen(true);
-              }}
+              href="https://t.me/ikorny_magnat"
             >
               Заказать
-            </button>
+            </a>
             
-            {/* Добавляем пункт для админа в мобильном меню */}
             <button 
               className={styles.navLinkMobile}
               onClick={() => {
@@ -234,13 +230,11 @@ const Header: React.FC = () => {
             </button>
             
             <div className={styles.mobileSocial}>
-              {/* Иконки социальных сетей */}
-              <a href="#" className={styles.socialIcon} aria-label="Telegram">
+              <a href="https://t.me/ikorny_magnat" className={styles.socialIcon} aria-label="Telegram">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" fill="currentColor"/>
                 </svg>
               </a>
-              {/* Другие иконки */}
             </div>
           </motion.nav>
         )}

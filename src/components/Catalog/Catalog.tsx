@@ -55,7 +55,7 @@ const Catalog: React.FC = () => {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await fetch('https://fish-back.onrender.com/products'); // Use a proper endpoint
+        const res = await fetch('http://83.166.245.100:3000/products'); // Use a proper endpoint
         const data = await res.json();
         
         // Process data to add type field based on title
