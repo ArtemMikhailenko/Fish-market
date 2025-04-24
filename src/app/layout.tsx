@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: "Самая свежая русская икра высочайшего качества с доставкой",
     images: [
       {
-        url: "/image/og-image.jpg",
+        url: "https://ikraluxe.ru/image/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Премиальная красная икра",
@@ -31,12 +31,13 @@ export const metadata: Metadata = {
     ],
     locale: "ru_RU",
     type: "website",
+    siteName: "ИкраЛюкс",
   },
   twitter: {
     card: "summary_large_image",
     title: "Премиальная Красная Икра - Высшее Качество",
     description: "Самая свежая русская икра высочайшего качества с доставкой",
-    images: ["/image/og-image.jpg"],
+    images: ["https://ikraluxe.ru/image/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -45,14 +46,19 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
   },
-  metadataBase: new URL("http://ikraluxe.ru"),
+  metadataBase: new URL("https://ikraluxe.ru"),
   alternates: {
     canonical: "/",
     languages: {
       "ru-RU": "/ru",
       "uk-UA": "/ua",
     },
+  },
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
   },
 };
 
@@ -62,14 +68,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
+      <head>
+        {/* Additional meta tags for Telegram */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image" content="https://ikraluxe.ru/image/og-image.jpg" />
+        <link rel="image_src" href="https://ikraluxe.ru/image/og-image.jpg" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <Header/>
-      
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
-      
     </html>
   );
 }
