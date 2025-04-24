@@ -81,7 +81,7 @@ const DeliverySteps: React.FC = () => {
           <span className={styles.tagline}>Быстро и удобно</span>
           <h2 className={styles.title}>Условия доставки и оплаты</h2>
           <p className={styles.subtitle}>
-            Всё просто: оформляйте заказ — и мы быстро доставим свежую икру прямо к вам!
+            Всё просто: оформляйте заказ и мы быстро доставим свежую икру прямо к вам!
           </p>
         </div>
 

@@ -24,7 +24,7 @@ const AdminLoginModal: React.FC<AdminLoginModalProps> = ({ isOpen, onClose }) =>
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("https://fish-back.onrender.com/admin/login", {
+      const res = await fetch("https://api.ikraluxe.ru/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

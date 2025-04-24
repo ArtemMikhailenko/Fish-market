@@ -43,7 +43,7 @@ const AdminsAdmin: React.FC = () => {
     setLoading(true);
     try {
       // Замените URL на реальный, например: http://localhost:3000/admin/all
-      const res = await fetch("https://fish-back.onrender.com/admin/all");
+      const res = await fetch("https://api.ikraluxe.ru/admin/all");
       if (!res.ok) throw new Error("Ошибка загрузки админов");
       const data = await res.json();
       setAdmins(data);
@@ -81,7 +81,7 @@ const AdminsAdmin: React.FC = () => {
   // Удаление админа
   const handleDelete = async (id: number | string) => {
     try {
-      const res = await fetch(`https://fish-back.onrender.com/admin/${id}`, {
+      const res = await fetch(`https://api.ikraluxe.ru/admin/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Ошибка удаления");
@@ -115,7 +115,7 @@ const AdminsAdmin: React.FC = () => {
   const handleCreateAdmin = async (username: string, password: string) => {
     try {
       const body = { username, password };
-      const res = await fetch("https://fish-back.onrender.com/admin/create", {
+      const res = await fetch("https://api.ikraluxe.ru/admin/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

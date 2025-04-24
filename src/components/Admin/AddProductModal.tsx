@@ -93,7 +93,7 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
     }
 
     try {
-      const res = await fetch("https://fish-back.onrender.com/products", {
+      const res = await fetch("https://api.ikraluxe.ru/products", {
         method: "POST",
         body: formData,
       });

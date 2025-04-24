@@ -76,7 +76,7 @@ const ProductsAdmin: React.FC = () => {
     setLoading(true);
     try {
       // Замените URL на реальный адрес вашего бэкенда
-      const res = await fetch("https://fish-back.onrender.com/products");
+      const res = await fetch("https://api.ikraluxe.ru/products");
       if (!res.ok) throw new Error("Ошибка загрузки");
       const data = await res.json();
       setProducts(data);
@@ -113,7 +113,7 @@ const ProductsAdmin: React.FC = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`https://fish-back.onrender.com/products/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://api.ikraluxe.ru/products/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Ошибка удаления");
       toast({
         title: "Товар удалён",
@@ -176,7 +176,7 @@ const ProductsAdmin: React.FC = () => {
     }
 
     try {
-      const res = await fetch(`https://fish-back.onrender.com/products/${editProduct._id}`, {
+      const res = await fetch(`https://api.ikraluxe.ru/products/${editProduct._id}`, {
         method: "PATCH",
         body: formData,
       });

@@ -512,3 +512,21 @@
     font-size: 0.8rem;
   }
 }
+@media (max-width: 768px) {
+  /* Убираем анимацию появления узлов */
+  .stepLineNode,
+  .animateNode {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Убираем появление шага */
+  .stepVisible,
+  .stepItem {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
