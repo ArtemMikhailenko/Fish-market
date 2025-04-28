@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                   </div>
                   <div className={styles.contactInfo}>
                     <span className={styles.contactLabel}>Адрес:</span>
-                    <span className={styles.contactText}>г. Киев, ул. Примерная, 123</span>
+                    <span className={styles.contactText}>Россия, Сахалинская область, г. Южно-Сахалинск, ул. Пуркаева, 90</span>
                   </div>
                 </div>
               </div>

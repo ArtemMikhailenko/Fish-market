@@ -44,19 +44,19 @@ export const reviews = [
     avatar: "/image/rewies/cm11.png",
   },
   {
-    id: 15,
-    avatar: "/image/rewies/cm15.png",
-  },
-  {
-    id: 16,
-    avatar: "/image/rewies/cm16.png",
-  },
-  {
-    id: 17,
-    avatar: "/image/rewies/cm17.png",
-  },
-  {
-    id: 18,
-    avatar: "/image/rewies/cm18.png",
-  },
+    id: 14,
+    avatar: "/image/rewies/cm14.png",
+  }
+  // {
+  //   id: 16,
+  //   avatar: "/image/rewies/cm16.png",
+  // },
+  // {
+  //   id: 17,
+  //   avatar: "/image/rewies/cm17.png",
+  // },
+  // {
+  //   id: 18,
+  //   avatar: "/image/rewies/cm18.png",
+  // },
 ];
